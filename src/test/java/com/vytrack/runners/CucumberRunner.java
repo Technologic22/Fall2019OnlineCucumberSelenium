@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
        dryRun = false,
        strict=false,
         tags = "",
-        plugin = "html:target/cucumber-html-report"
+        plugin = {
+                "html:target/cucumber-html-report",
+                }
         )
 public class CucumberRunner {
 
