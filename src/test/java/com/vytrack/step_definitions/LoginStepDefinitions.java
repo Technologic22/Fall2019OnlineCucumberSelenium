@@ -46,4 +46,11 @@ public class LoginStepDefinitions {
         loginPage.login("user19","UserUser123");
     }
 
+    //when user enters "storemanager85" username and "UserUser123" password
+    @When("user enters {string} username and {string} password")
+    public void user_enters_username_and_password(String string, String string2) {
+        System.out.printf("Login with user name %s and %s password", string, string2);
+        loginPage.login(string, string2);
+    }
+
 }
