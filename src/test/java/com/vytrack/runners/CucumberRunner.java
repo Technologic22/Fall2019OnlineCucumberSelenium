@@ -8,12 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions( monochrome = true,
         glue = "com/vytrack/step_definitions",
        features = "src/test/resources/features",
-       dryRun = false,
+       dryRun = true,
        strict=false,
-        tags = "@login_with_params",
-        plugin = {
-                "html:target/cucumber-html-report",
-                }
+        tags = "@activities",
+        plugin = "html:target/cucumber-html-report"
+
         )
 public class CucumberRunner {
 
