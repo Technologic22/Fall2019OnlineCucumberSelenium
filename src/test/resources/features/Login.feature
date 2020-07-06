@@ -1,3 +1,4 @@
+@login
 Feature: Login
   As user, I want to be able to log in with username and password
 #  Agile story (to comment use # hashtag)
