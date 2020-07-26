@@ -46,6 +46,14 @@ public class CalendarEventsPage extends com.vytrack.pages.AbstractPageBase {
     @FindBy(xpath = "//label[text()='Description']//following-sibling::div/div")
     private WebElement generalInfoDescription;
 
+    @FindBy (xpath = "//*[contains (text(), 'View per page:')]/following-sibling::*//a")
+    private List<WebElement> viewPerPageElements;
+
+    public List<String> getViewPerPageOptions(){
+        BrowserUtilities.waitForPageToLoad(15);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
+        return BrowserUtilities.getTextFromWebElements(viewPerPageElements);
+    }
 
     public void enterCalendarEventTitle(String titleValue){
         BrowserUtilities.waitForPageToLoad(15);
