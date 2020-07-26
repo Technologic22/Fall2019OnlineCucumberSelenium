@@ -48,7 +48,7 @@ public class CalendarEventsPage extends com.vytrack.pages.AbstractPageBase {
 
 
     public void enterCalendarEventTitle(String titleValue){
-        BrowserUtilities.waitForPageToLoad(10);
+        BrowserUtilities.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
         wait.until(ExpectedConditions.attributeToBe(title, "value", titleValue));
     }
