@@ -10,3 +10,6 @@ Scenario: Add new car
   Then user creates a car with following info:
   | License Plate | Driver    | Location | Model Year | Color |
   |   SDET        | Pro Racer | Brooklyn | 2018       | Gray  |
+  And user verifies that car info is displayed
+  | License Plate | Driver    | Location | Model Year | Color |
+  |   SDET        | Pro Racer | Brooklyn | 2018       | Gray  |

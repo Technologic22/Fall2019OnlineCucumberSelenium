@@ -1,6 +1,8 @@
 package com.vytrack.pages.fleet;
 
 import com.vytrack.pages.AbstractPageBase;
+import com.vytrack.utilities.BrowserUtilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,6 +32,9 @@ public class VehiclesPage extends AbstractPageBase {
     private WebElement submit;
 
     public void setLicencePlateInput(String licencePlate) {
+        BrowserUtilities.waitForPageToLoad(10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='custom_entity_type[LicensePlate]']")));
+        wait.until(ExpectedConditions.visibilityOf(licencePlateInput));
         licencePlateInput.sendKeys(licencePlate);
     }
 
@@ -56,6 +61,11 @@ public class VehiclesPage extends AbstractPageBase {
     public void clickToCreateCar(){
         WebDriverWait wait= new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(createCar)).click();
+    }
 
+    public String getGeneralCarInfo(String parameter){
+        String xpath="//label[text()='"+parameter+"']/following-sibling::div/div";
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        return driver.findElement(By.xpath(xpath)).getText().trim();
     }
 }
