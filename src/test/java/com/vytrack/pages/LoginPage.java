@@ -52,4 +52,26 @@ public class LoginPage extends AbstractPageBase{
         BrowserUtilities.wait(3);
     }
 
+    /**
+     * this method stands for login based on user's role
+     *if parameter equals to to driver, user will login as a driver
+     * If role parameter is not correct, method will throw exception
+     * @param role - driver, sales manager, or store manager
+     *
+     */
+    public void login(String role){
+     String userName="";
+     if (role.equalsIgnoreCase("driver")){
+        userName="user15";
+     }else if (role.equalsIgnoreCase("sales manager")){
+         userName="salesmanager110";
+     }else if (role.equalsIgnoreCase("Store manager")){
+         userName="store_manager85";
+     }else { throw new RuntimeException("Invalid role!");
+     }
+        System.out.println("Login as "+role);
+     login(userName, "UserUser123");
+
+    }
+
 }

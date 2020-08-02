@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
        features = "src/test/resources/features",
        dryRun = false,
        strict=false,
-        tags = "@scenario_outline",
+        tags = "@scenario_outline_2",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber1.json"
