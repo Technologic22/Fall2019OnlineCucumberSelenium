@@ -10,10 +10,12 @@ import org.junit.runner.RunWith;
        features = "src/test/resources/features",
        dryRun = false,
        strict=false,
-      //  tags = "@driver",
+       tags = "@view_calendar_events",
         plugin = {
                 "html:target/default-report",
-                "json:target/cucumber1.json"
+                "json:target/cucumber1.json",
+                "rerun:target/rerun.txt"
+
         }
 )
 public class CucumberRunner {
