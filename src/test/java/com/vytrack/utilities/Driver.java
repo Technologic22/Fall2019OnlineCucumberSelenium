@@ -29,7 +29,13 @@ public class Driver {
         //create it
         if (driverPool.get() == null) {
             //specify browser type in configuration.properties file
-            String browser = com.vytrack.utilities.ConfigurationReader.getProperty("browser").toLowerCase();
+            String browser = ConfigurationReader.getProperty("browser").toLowerCase();
+
+            //mvn test -Dbrowser=firefox
+            if (System.getProperty("browser")!=null){
+                browser = System.getProperty("browser");
+            }
+
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
