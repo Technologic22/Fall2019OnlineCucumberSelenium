@@ -19,3 +19,21 @@ To run feature files w/out limiting # of threads
             <!--     list all runner classes here-->
             <include>**/RegressionRunner.java</include>
             </includes>
+            
+###To specify browser type, use parameter -Dbrowser=browserType:
+
+clean test -Dbrowser=firefox
+###To specify environment, use parameter -Denv=envType
+
+mvn test -Denv=qa2
+###To run regression on qa1 and chrome browser:
+
+clean test -Dbrowser=chrome -Denv=qa1 -P Regression
+###To run smoke test on qa2 and chrome firefox:
+
+clean test -Dbrowser=firefox -Denv=qa2 -P Smoke
+##NOTE: add mvn before every command if you are not running it on Jenkins:
+
+mvn test -Dbrowser=firefox -Denv=qa2 -P Regression      
+
+####To read in Java something -Dparam use --> System.getProperty("param")      

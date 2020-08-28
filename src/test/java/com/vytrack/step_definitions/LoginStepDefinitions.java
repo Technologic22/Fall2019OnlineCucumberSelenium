@@ -16,7 +16,15 @@ public class LoginStepDefinitions {
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
         System.out.println("Open login page");
-        String URL= ConfigurationReader.getProperty("qa1");
+
+        //in order to change environment from Terminal
+        //mvn test -Denv=qa1 or -Denv=qa2 or -Denv=qa3
+        String env="qa2";
+        if (System.getProperty(env)!=null){
+            env=System.getProperty("env");
+        }
+        String URL= ConfigurationReader.getProperty(env);
+        System.out.println("URL :::: ::::"+URL);
         Driver.getDriver().get(URL);
         }
 
